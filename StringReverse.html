@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const str = "abcde";
+        //let reverseStr = str.split("").reverse().join("");
+
+
+        function reverse(str) {
+            let reverseStr = "";
+            let datas = [];
+            //string object => 
+            for (let i = str.length - 1; i >= 0; i--) {
+                reverseStr += str[i];
+                datas.push(str[i]);
+            }
+            console.log(datas);
+            return reverseStr;
+        }
+
+        console.log(reverse("abcde"))
+
+    </script>
+</body>
+
+</html>
