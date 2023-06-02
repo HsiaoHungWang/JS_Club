@@ -57,19 +57,21 @@
         function Areas(cityName) {
             console.log(cityName)
             cityArea = addresses.filter(item => item.CityName == cityName)
-            selArea.innerHTML = cityArea[0].AreaList.map(item => `<option value=${item.ZipCode}>${item.AreaName}</option>`)
+            const areas = cityArea[0].AreaList.map(item => `<option value=${item.ZipCode}>${item.AreaName}</option>`)
+            selArea.innerHTML = areas.join("");
             Roads(selArea.options[selArea.selectedIndex].value);
         }
 
         function Roads(zipCode) {
             areaRoad = cityArea[0].AreaList.filter(area => area.ZipCode === zipCode)
             // console.log(areaLoad[0].RoadList)
-            selRoad.innerHTML = areaRoad[0].RoadList.map(item => `<option value=${item.RoadName}>${item.RoadName}</option>`)
+            const roads = areaRoad[0].RoadList.map(item => `<option value=${item.RoadName}>${item.RoadName}</option>`)
+            selRoad.innerHTML = roads.join("");
         }
 
         function Cities() {
             const cities = addresses.map(item => `<option value=${item.CityName}>${item.CityName}</option>`)
-            selCity.innerHTML = cities;
+            selCity.innerHTML = cities.join("");
             Areas(selCity.options[selCity.selectedIndex].value);
         }
 

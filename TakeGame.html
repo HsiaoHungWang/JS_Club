@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>
+        兩個人玩拿石頭的遊戲，有n個石頭，你先開始拿石頭，一次拿走1到3顆石頭，拿走最後石頭的人獲勝。
+
+
+        請寫一個function傳入石頭的數量，你獲勝回傳 true，否則回傳 false
+
+    </p>
+    <p>例如：</p>
+    <ul>
+
+        <li>有四顆石頭，不管你拿幾顆，都是對手獲勝</li>
+        <li>有三顆石頭，你全部拿，你獲勝</li>
+        <li>有九顆石頭，你拿三顆，對手拿兩顆，對手獲勝</li>
+        <li>有九顆石頭，你拿一顆，對手拿三顆，你再拿一顆，你獲勝</li>
+    </ul>
+    <script>
+        //石頭數量為4的倍數，就會輸
+        function game(stones) {
+            return stones % 4 !== 0;
+        }
+        console.log(game(4));
+        console.log(game(3));
+    </script>
+</body>
+
+</html>

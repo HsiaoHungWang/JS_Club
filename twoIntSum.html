@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>
+        請設計一個 function，能夠傳入 一個數字陣列及一個數字的結果，回傳陣列中數字相加等於數字結果的索引值
+        輸入陣列為 [4,8,2,7] 輸入結果為 6
+        因為陣列中的 4 跟 2相加會等於6，4的索引值是0，2的索引值是2，所以回傳的結果為[0,2]
+
+    </p>
+    <script>
+        //方法一
+        function sum(nums, target) {
+            for (let i = 0, max1 = nums.length - 1; i < max1; i++) {
+                //  console.log("i=", nums[i])
+                let num1 = nums[i];
+                for (let j = i + 1, max2 = nums.length; j < max2; j++) {
+                    //  console.log('j=', nums[j])
+                    let num2 = nums[j];
+                    if (num1 + num2 === target) {
+                        return [i, j];
+                    }
+                }
+                return [];
+            }
+        }
+
+        //方法二
+        function sum1(nums, target) {
+            const map = {};
+            for (let i = 0, max = nums.length; i < max; i++) {
+                const findNum = target - nums[i];
+                if (map[findNum] !== undefined) {
+                    return [i, map[findNum]]
+                }
+                map[nums[i]] = i;
+            }
+
+            return []
+        }
+
+        console.log(sum([4, 8, 2, 7], 6));
+        console.log(sum1([4, 8, 2, 7], 6));
+        // console.log(sum1([4, 8, 2, 7], 10));
+        // console.log(sum1([4, 8, 2, 7], 15));
+    </script>
+</body>
+
+</html>

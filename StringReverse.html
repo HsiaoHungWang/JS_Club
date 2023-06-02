@@ -13,20 +13,39 @@
         const str = "abcde";
         //let reverseStr = str.split("").reverse().join("");
 
-
+        //方法一
         function reverse(str) {
             let reverseStr = "";
-            let datas = [];
-            //string object => 
             for (let i = str.length - 1; i >= 0; i--) {
                 reverseStr += str[i];
-                datas.push(str[i]);
             }
-            console.log(datas);
             return reverseStr;
         }
 
+        //方法二
+        function reverse1(str) {
+            let strArray = str.split("");
+            for (let i = 0, max = (strArray.length - 1) / 2; i < max; i++) {
+                //先將陣列中地一個位置的值放進變數中
+                const temp = strArray[i];
+
+                //將陣列中最後一個位置的值放到陣列中的第一個位置
+                //再將陣列中倒數第二個位址的值放到陣列的第二位置
+                //.....
+                const backIndex = strArray.length - 1 - i;
+                strArray[i] = strArray[backIndex];
+
+                //將變數中的值放到陣列中的最後一個位置
+                //.....
+                strArray[backIndex] = temp;
+            }
+            return strArray.join("");
+
+        }
+
+
         console.log(reverse("abcde"))
+        console.log(reverse1("abcde"))
 
     </script>
 </body>
